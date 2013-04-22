@@ -35,17 +35,19 @@ To use repl From emacs use nrepl.el
 
 ## As maven library
 
-run bin/install-file.bat
+Install library into local maven repository:
+
+    bin/install-file.bat
 
 Add dependency to pom.xml
 
-  <dependencies>
-    <dependency>
-      <groupId>org.simplefire</groupId>
-      <artifactId>nrepl-servlet-context</artifactId>
-      <version>0.1.0</version>
-    </dependency>
-  </dependecies>
+    <dependencies>
+      <dependency>
+        <groupId>org.simplefire</groupId>
+        <artifactId>nrepl-servlet-context</artifactId>
+        <version>0.1.0</version>
+      </dependency>
+    </dependecies>
 
 ## License
 
