@@ -1,12 +1,50 @@
 # nrepl-servlet-context
 
-Provides a ServletContextListener that starts nrepl server in the web application.
+Use: starts nrepl server in web application for dev.
 
-## Build
+## build
 
-Checkout and run lein uberjar
+```
+lein jar
+```
 
-## Usage
+## gradle spring boot add to libs dir
+
+build.gradle:
+
+```
+dependencies {
+  implementation "org.clojure:clojure:1.8.0"
+  implementation "nrepl:nrepl:0.6.0"
+  implementation files('libs/nrepl-servlet-context-0.1.1.jar')
+}
+```
+
+## start server
+
+```kotlin
+@SpringBootApplication
+class AnApplication {
+    @Bean
+    fun repl(): javax.servlet.ServletContextListener {
+	return org.simplefire.NReplServletContextListener()
+    }
+}
+```
+
+## terminal connect
+
+To use repl from command line: 
+
+    lein repl :connect 5000
+    
+## emacs connect
+
+To use repl From emacs use nrepl.el
+
+    M-x nrepl RET hostname RET 5000
+
+## start server in web app
 
 WEB-INF/lib: Place nrepl-servlet-context-0.1.0-standalone.jar
 
@@ -18,39 +56,5 @@ WEB-INF/web.xml: Add the following lines
 
     <context-param>
         <param-name>nrepl-port</param-name>
-        <param-value>4000</param-value>
+        <param-value>5000</param-value>
     </context-param>
-
-(can change the port number to your need)
-
-Start web-app
-
-To use repl from command line: 
-
-    lein repl :connect 4000
-
-To use repl From emacs use nrepl.el
-
-    M-x nrepl RET hostname RET 4000
-
-## As maven library
-
-Install library into local maven repository:
-
-    bin/install-file.bat
-
-gradle: lib directory
-
-dependencies {
-    implementation files('libs/something_local.jar')
-}
-
-Add dependency to pom.xml
-
-    <dependencies>
-      <dependency>
-        <groupId>org.simplefire</groupId>
-        <artifactId>nrepl-servlet-context</artifactId>
-        <version>0.1.0</version>
-      </dependency>
-    </dependecies>
