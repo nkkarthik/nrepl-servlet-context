@@ -40,9 +40,15 @@ To use repl from command line:
     
 ## emacs connect
 
-To use repl From emacs use nrepl.el
+To use repl From emacs use [https://github.com/cemerick/nrepl.el](https://github.com/cemerick/nrepl.el) 
 
-    M-x nrepl RET hostname RET 5000
+```
+    M-x cider RET hostname RET 5000
+```
+
+```emacs-lisp
+(cider-connect-clj '(:host "localhost" :port 5000))
+```
 
 ## start server in web app
 
