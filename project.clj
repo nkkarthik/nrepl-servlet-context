@@ -1,18 +1,19 @@
-(defproject nrepl-servlet-context "0.1.0"
+(defproject nrepl-servlet-context "0.1.1"
 
   :description "Provides a ServletContextListener that starts nrepl
   server in the web application."
 
-  :url "http://example.com/FIXME"
+  :url "http://none.com"
 
-  :license {:name "Eclipse Public License"
-            :url "http://www.eclipse.org/legal/epl-v10.html"}
+  :license {:name "Eclipse Public License" :url "http://none"}
 
   :source-paths ["src"]
   
-  :dependencies [[org.clojure/clojure "1.4.0"]
-                 [clojure-complete "0.2.2"]
-                 [org.clojure/tools.nrepl "0.2.0-RC1"]]
+  :dependencies [[org.clojure/clojure "1.8.0"]
+                 [nrepl/nrepl "0.6.0"]
+                 [javax.servlet/servlet-api "2.5"]
+		]
+
 
   :aot [nrepl-servlet-context.core]
   

@@ -13,7 +13,7 @@ WEB-INF/lib: Place nrepl-servlet-context-0.1.0-standalone.jar
 WEB-INF/web.xml: Add the following lines
 
     <listener>
-        <listener-class>org.simplefire.nrepl.StartNReplServletContextListener</listener-class>
+        <listener-class>org.simplefire.NReplServletContextListener</listener-class>
     </listener>
 
     <context-param>
@@ -39,6 +39,12 @@ Install library into local maven repository:
 
     bin/install-file.bat
 
+gradle: lib directory
+
+dependencies {
+    implementation files('libs/something_local.jar')
+}
+
 Add dependency to pom.xml
 
     <dependencies>
@@ -48,9 +54,3 @@ Add dependency to pom.xml
         <version>0.1.0</version>
       </dependency>
     </dependecies>
-
-## License
-
-Copyright © 2012
-
-Distributed under the Eclipse Public License, the same as Clojure.

@@ -5,3 +5,4 @@ pom.xml
 /target/
 .lein-deps-sum
 /bin/install-file.bat
+/.lein-repl-history
